@@ -1,0 +1,74 @@
+/* GLOBAL SETTINGS */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #001f3f; /* Fallback */
+}
+
+/* CUSTOM UTILITIES */
+.glass-panel {
+    background: rgba(0, 31, 63, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    /* Subtle neon border feel */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* ANIMATIONS */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* STONE INTERACTIONS */
+/* Add a glow effect when hovering over stone items */
+.stone-item:hover i {
+    filter: drop-shadow(0 0 15px currentColor);
+}
+
+/* NAVBAR SCROLL STATE */
+.nav-scrolled {
+    background-color: rgba(0, 31, 63, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+}
+
+/* FAQ ACCORDION TRANSITIONS */
+.faq-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.faq-toggle.active i {
+    transform: rotate(180deg);
+}
+
+.faq-toggle.active {
+    color: #98ff98; /* Mint */
+}
+
+/* SCROLLBAR CUSTOMIZATION (Webkit) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #001f3f;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #003366;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #98ff98;
+}

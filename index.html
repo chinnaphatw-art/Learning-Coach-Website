@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Learning Coach - Smart Learning System</title>
+    
+    <!-- Fonts: Kanit (Thai) & Inter (English) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#001f3f',
+                        navyLight: '#003366',
+                        mint: '#98ff98',
+                        mintDark: '#4caf50',
+                        orange: '#ff851b',
+                        orangeHover: '#e07415',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        thai: ['Kanit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-navy text-white font-sans antialiased overflow-x-hidden selection:bg-mint selection:text-navy">
+
+    <!-- NAVIGATION -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <!-- Bar Chart Logo -->
+                    <div class="w-12 h-12 flex items-end justify-center gap-1.5 -translate-y-1">
+                        <div class="w-2 h-4 bg-gradient-to-t from-blue-600 to-blue-500 rounded-sm"></div>
+                        <div class="w-2 h-6 bg-gradient-to-t from-purple-600 to-purple-500 rounded-sm"></div>
+                        <div class="w-2 h-8 bg-gradient-to-t from-rose-500 to-pink-500 rounded-sm"></div>
+                        <div class="w-2 h-10 bg-gradient-to-t from-orange-500 to-yellow-400 rounded-sm group-hover:scale-105 transition"></div>
+                    </div>
+                    <div class="flex items-baseline gap-1.5">
+                        <span class="font-thai font-extrabold text-xs text-white tracking-wide">The</span>
+                        <span class="font-thai font-extrabold text-2xl text-orange leading-none">Learning</span>
+                        <span class="font-thai font-extrabold text-2xl text-white leading-none">Coach</span>
+                    </div>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6 items-center font-thai text-sm">
+                    <a href="#home" class="nav-link text-gray-300 hover:text-mint transition">หน้าแรก</a>
+                    <a href="#problems" class="nav-link text-gray-300 hover:text-mint transition">ปัญหาที่เจอ</a>
+                    <a href="#solution" class="nav-link text-gray-300 hover:text-mint transition">วิธีการ</a>
+                    <a href="#products" class="nav-link text-gray-300 hover:text-mint transition">เลือกอาวุธ</a>
+                    <a href="#about" class="nav-link text-gray-300 hover:text-mint transition">เกี่ยวกับเรา</a>
+                    <a href="#faq" class="nav-link text-gray-300 hover:text-mint transition">FAQ</a>
+                </div>
+
+                <!-- CTA & Mobile Toggle -->
+                <div class="flex items-center gap-4">
+                    <a href="#products" class="hidden md:inline-flex bg-orange hover:bg-orangeHover text-white font-thai font-bold py-2 px-6 rounded shadow-[0_4px_14px_0_rgba(255,133,27,0.39)] transition transform hover:scale-105">
+                        Start Now
+                    </a>
+                    <button id="mobile-menu-btn" class="md:hidden text-white hover:text-mint text-2xl">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navyLight/95 backdrop-blur-md absolute w-full border-t border-gray-700">
+            <div class="flex flex-col p-4 space-y-4 font-thai text-center">
+                <a href="#home" class="mobile-link text-gray-300 hover:text-mint">หน้าแรก</a>
+                <a href="#problems" class="mobile-link text-gray-300 hover:text-mint">ปัญหาที่เจอ</a>
+                <a href="#products" class="mobile-link text-gray-300 hover:text-mint">สินค้าและบริการ</a>
+                <a href="#contact" class="mobile-link text-gray-300 hover:text-mint">ติดต่อเรา</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
+        <!-- Background Blobs -->
+        <div class="absolute top-20 right-0 w-96 h-96 bg-mint/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/10 rounded-full blur-[120px]"></div>
+
+        <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="text-center lg:text-left" data-aos="fade-right" data-aos-duration="1000">
+                <div class="inline-block px-4 py-1 mb-6 rounded-full border border-mint/30 bg-mint/5 text-mint font-thai text-sm animate-pulse">
+                    <i class="fa-solid fa-bolt mr-2"></i> Unlock Your Potential
+                </div>
+                <h1 class="text-4xl lg:text-7xl font-thai font-bold leading-tight mb-6">
+                    <span class="block text-lg lg:text-2xl text-gray-300 mb-2">ในโลกยุค AI...</span>
+                    <span class="block text-5xl lg:text-8xl font-extrabold leading-tight lg:leading-tight" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" data-aos-easing="ease-out-cubic">
+                        <span class="block">ลูกของคุณ</span>
+                        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-orange to-mint drop-shadow-md">'เรียนรู้ได้ไวพอ'</span>
+                        <span class="block">แล้วหรือยัง?</span>
+                    </span>
+                </h1>
+                <p class="text-gray-300 text-lg font-thai mb-8 leading-relaxed">
+                    มาปรับเปลี่ยน 'วิธีการเรียนรู้' ด้วย <strong class="text-mint">Pro Learner Hub</strong> และระบบ Gamification ที่ช่วยทลายขีดจำกัดในการเรียนรู้ ให้ลูกของคุณเติบโตได้แบบก้าวกระโดด
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="#products" class="bg-orange hover:bg-orangeHover text-white font-bold py-4 px-8 rounded-lg shadow-lg transition transform hover:scale-105 font-thai">
+                        เริ่มต้นภารกิจฟรี <i class="fa-solid fa-rocket ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="relative flex justify-center" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <div class="glass-panel p-4 md:p-6 rounded-xl border border-gray-600 shadow-2xl animate-float w-full max-w-md md:max-w-xl lg:max-w-2xl">
+                    <!-- Placeholder Dashboard Image -->
+                    <div class="bg-navy rounded-lg overflow-hidden relative group cursor-pointer h-64 md:h-[420px] lg:h-[520px]">
+                         <img src="images/hero-dashboard.png" alt="Pro Learner Dashboard" class="object-contain w-full h-full bg-white rounded-lg opacity-90 group-hover:opacity-100 group-hover:scale-105 transform transition duration-700">
+                         <div class="absolute inset-0 flex items-center justify-center">
+                             <div class="bg-navy/80 backdrop-blur border border-mint px-4 py-2 rounded text-mint font-thai font-bold">
+                                 <i class="fa-solid fa-chart-pie mr-2"></i> ภาพตัวอย่างจาก Pro Learner Hub
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. PAIN POINTS -->
+    <section id="problems" class="py-24 bg-navyLight/30 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4">
+              <h2 class="text-center text-3xl font-thai font-bold mb-12" data-aos="fade-up">คำถามที่พบบ่อย (FAQ)</h2>
+                <h2 class="text-3xl lg:text-4xl font-thai font-bold mb-4">
+                    ลูกของคุณกำลังเผชิญกับ <span class="text-red-500">"วิกฤติการเรียนรู้"</span> เหล่านี้อยู่หรือเปล่า?
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-panel p-8 rounded-xl border-t-4 border-red-500 hover:bg-navyLight transition duration-300" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-14 h-14 bg-red-500/20 rounded-full flex items-center justify-center text-red-500 text-2xl mb-6">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <h3 class="text-xl font-thai font-bold mb-3">Attention Crisis</h3>
+                    <p class="text-gray-400 text-sm font-thai leading-relaxed">
+                        โฟกัสหลุดง่าย เพราะสิ่งเร้ารอบตัว ทำให้การอ่านหนังสือ 1 ชั่วโมง ได้เนื้อหาจริงแค่ 15 นาที
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="glass-panel p-8 rounded-xl border-t-4 border-red-500 hover:bg-navyLight transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-red-500/20 rounded-full flex items-center justify-center text-red-500 text-2xl mb-6">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-thai font-bold mb-3">Information Overload</h3>
+                    <p class="text-gray-400 text-sm font-thai leading-relaxed">
+                        ข้อมูลท่วมหัวจากแหล่งข้อมูลมากมาย แต่ไม่รู้วิธี "จัดระเบียบ" เพื่อให้ใช้งานได้ง่าย ทำให้สับสนและกังวลก่อนสอบ
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="glass-panel p-8 rounded-xl border-t-4 border-red-500 hover:bg-navyLight transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-red-500/20 rounded-full flex items-center justify-center text-red-500 text-2xl mb-6">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-thai font-bold mb-3">Passive Learning</h3>
+                    <p class="text-gray-400 text-sm font-thai leading-relaxed">
+                        รอเป็นผู้รับตามแต่ที่ครูจะสอน ไม่เห็นความเชื่อมโยง พอสอบเสร็จก็ลืม ไม่สามารถนำไปประยุกต์ใช้ได้
+                    </p>
+                </div>
+                <!-- Card 4 -->
+                <div class="glass-panel p-8 rounded-xl border-t-4 border-red-500 hover:bg-navyLight transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-red-500/20 rounded-full flex items-center justify-center text-red-500 text-2xl mb-6">
+                        <i class="fa-solid fa-compass"></i>
+                    </div>
+                    <h3 class="text-xl font-thai font-bold mb-3">Purpose Crisis</h3>
+                    <p class="text-gray-400 text-sm font-thai leading-relaxed">
+                        ไม่รู้เรียนไปทำไม รู้สึกว่าสิ่งที่เรียนไม่เห็นมีประโยชน์อะไรกับชีวิต แถมสุดท้ายเดี๋ยว AI ก็ทำให้ได้หมดอยู่ดี
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="400">
+                <p class="text-lg font-thai font-bold mb-2">
+                    <span class="text-white">หากคำตอบคือ 'ใช่'</span>
+                </p>
+                <p class="text-3xl text-white font-thai font-semibold">ถึงจะ<span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">เรียนหนัก</span>แต่ผลลัพธ์อาจ<span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">ไม่ได้ดีขึ้นกว่าเดิม</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SOLUTION SECTION -->
+    <section id="solution" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl lg:text-5xl font-thai font-bold mb-4 text-center" data-aos="fade-down">อยากให้ลูก <span class="text-mint">'เรียนรู้ไว'</span></h2>
+            <p class="text-lg lg:text-2xl font-thai text-gray-300 mb-20 text-center" data-aos="fade-down" data-aos-delay="100">มาปรับ 'วิธีการเรียนรู้' สู่การเป็น <span class="text-mint">Pro Learner</span> ด้วยการ...</p>
+
+            <!-- Two-column layout for both solutions -->
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
+                <!-- Section 1: Learning Loop Circle -->
+                <div class="bg-gradient-to-r from-navyLight/50 to-navy/50 rounded-2xl p-8 border border-mint/20" data-aos="fade-right">
+                    <h3 class="text-2xl lg:text-3xl font-thai font-bold mb-8 text-center lg:text-left">1. ปรับวงจรการเรียนรู้</h3>
+                    <div class="flex justify-center items-center">
+                        <div class="relative w-72 h-72 md:w-80 md:h-80">
+                            <!-- Circular progress background -->
+                            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 400">
+                                <circle cx="200" cy="200" r="180" fill="none" stroke="rgba(152, 255, 152, 0.1)" stroke-width="2" />
+                            </svg>
+                            
+                            <!-- Step 1: Top -->
+                            <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 text-center">
+                                <div class="w-20 h-20 mx-auto bg-navyLight border-2 border-mint rounded-full flex items-center justify-center text-4xl text-mint shadow-[0_0_15px_rgba(152,255,152,0.3)] mb-2">
+                                    <i class="fa-regular fa-calendar-check"></i>
+                                </div>
+                                <h4 class="text-lg font-bold font-thai">Plan</h4>
+                                <p class="text-xs text-gray-400 font-thai">วางแผนก่อนเริ่มลุย</p>
+                            </div>
+                            
+                            <!-- Step 2: Right -->
+                            <div class="absolute top-1/2 -right-8 transform -translate-y-1/2 text-center">
+                                <div class="w-20 h-20 mx-auto bg-navyLight border-2 border-mint rounded-full flex items-center justify-center text-4xl text-mint shadow-[0_0_15px_rgba(152,255,152,0.3)] mb-2">
+                                    <i class="fa-solid fa-book-open"></i>
+                                </div>
+                                <h4 class="text-lg font-bold font-thai">Learn</h4>
+                                <p class="text-xs text-gray-400 font-thai">เรียนอย่างถูกวิธี</p>
+                            </div>
+                            
+                            <!-- Step 3: Bottom -->
+                            <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-center">
+                                <div class="w-20 h-20 mx-auto bg-navyLight border-2 border-mint rounded-full flex items-center justify-center text-4xl text-mint shadow-[0_0_15px_rgba(152,255,152,0.3)] mb-2">
+                                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                                </div>
+                                <h4 class="text-lg font-bold font-thai">Reflect</h4>
+                                <p class="text-xs text-gray-400 font-thai">สะท้อนผล</p>
+                            </div>
+                            
+                            <!-- Step 4: Left -->
+                            <div class="absolute top-1/2 -left-8 transform -translate-y-1/2 text-center">
+                                <div class="w-20 h-20 mx-auto bg-navyLight border-2 border-mint rounded-full flex items-center justify-center text-4xl text-mint shadow-[0_0_15px_rgba(152,255,152,0.3)] mb-2">
+                                    <i class="fa-solid fa-folder-tree"></i>
+                                </div>
+                                <h4 class="text-lg font-bold font-thai">Organize</h4>
+                                <p class="text-xs text-gray-400 font-thai">จัดระบบ</p>
+                            </div>
+                            
+                            <!-- Center text -->
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="text-center">
+                                    <p class="text-mint font-thai font-bold text-2xl">Learning Loop</p>
+                                    <p class="text-gray-400 font-thai text-base mt-2">ของ Pro Learner</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Pro-Learner Hub -->
+                <div class="bg-gradient-to-r from-navyLight/50 to-navy/50 rounded-2xl p-8 border border-mint/20" data-aos="fade-left">
+                    <h3 class="text-2xl lg:text-3xl font-thai font-bold mb-8 text-center lg:text-left">2. สร้างระบบรองรับ</h3>
+                    <div class="space-y-6">
+                        <div class="bg-navy rounded-xl p-6 border border-mint/30 shadow-lg">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i class="fa-solid fa-chart-pie text-3xl text-mint"></i>
+                                <h4 class="text-xl font-bold font-thai text-mint">Pro Learner Hub</h4>
+                            </div>
+                            <p class="text-gray-300 font-thai text-sm leading-relaxed">ระบบปฏิบัติการในแพลตฟอร์ม Notion ที่ออกแบบมาเพื่อสนับสนุนการเรียนรู้ของลูก</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex gap-4 items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-mint rounded-full flex items-center justify-center text-navy font-bold text-sm">✓</div>
+                                <div>
+                                    <h5 class="font-bold font-thai mb-1">Daily Log</h5>
+                                    <p class="text-gray-400 text-sm font-thai">บันทึกกิจกรรมการเรียนรู้ประจำวัน</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-mint rounded-full flex items-center justify-center text-navy font-bold text-sm">✓</div>
+                                <div>
+                                    <h5 class="font-bold font-thai mb-1">Learning Planner</h5>
+                                    <p class="text-gray-400 text-sm font-thai">วางแผนการเรียนรู้ให้ต่อเนื่อง ไม่มีสะดุด</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-mint rounded-full flex items-center justify-center text-navy font-bold text-sm">✓</div>
+                                <div>
+                                    <h5 class="font-bold font-thai mb-1">Second Brain</h5>
+                                    <p class="text-gray-400 text-sm font-thai">จัดระบบความรู้เพื่อการค้นหาและนำกลับมาใช้งาน</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-mint rounded-full flex items-center justify-center text-navy font-bold text-sm">✓</div>
+                                <div>
+                                    <h5 class="font-bold font-thai mb-1">Analytics & Review</h5>
+                                    <p class="text-gray-400 text-sm font-thai">วิเคราะห์ความก้าวหน้าและปรับปรุงอย่างต่อเนื่อง</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </section>
+
+    <!-- 3.5 TRANSFORMATION SECTION -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl lg:text-5xl font-thai font-bold mb-4 text-center" data-aos="fade-down">
+                สิ่งที่จะเปลี่ยนไปเมื่อเป็น <span class="text-mint">Pro Learner</span>
+            </h2>
+            </p>
+
+            <!-- Pro-Learner Characteristics -->
+            <div class="max-w-3xl mx-auto space-y-6">
+                <!-- 10x Learning Mode -->
+                <div class="bg-gradient-to-br from-yellow-500/10 to-orange-900/10 rounded-2xl p-8 border border-yellow-500/30" data-aos="fade-up">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-rocket text-navy text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold font-thai text-yellow-500 mb-2">10x Learning Mode</h3>
+                            <p class="text-gray-300 font-thai text-lg">เรียนรู้ได้ไวกว่าเดิม ด้วยวิธีการและกลยุทธ์ที่ถูกต้อง ทำให้เวลาเรียนสั้นลง แต่ผลการเรียนดีขึ้น</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Brain -->
+                <div class="bg-gradient-to-br from-blue-500/10 to-blue-900/10 rounded-2xl p-8 border border-blue-500/30" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-brain text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold font-thai text-blue-500 mb-2">Second Brain</h3>
+                            <p class="text-gray-300 font-thai text-lg">'ระบบสมองที่สอง' ช่วยเก็บสิ่งที่เรียนรู้ไม่ให้หล่นหายและสามารถเรียกมาใช้ได้ตลอดเวลา พร้อมรู้ว่าความรู้ไหนที่ตนเองยังขาด</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Self-Awareness -->
+                <div class="bg-gradient-to-br from-rose-500/10 to-rose-900/10 rounded-2xl p-8 border border-rose-500/30" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-10 h-10 bg-rose-500 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-heart text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold font-thai text-rose-500 mb-2">Self-Awareness</h3>
+                            <p class="text-gray-300 font-thai text-lg">เข้าใจตัวเอง วางเป้าหมายชีวิตได้ชัดเจนมากขึ้น รู้จักจุดแข็ง จุดอ่อน และพัฒนาตัวเองในทิศทางที่ถูกต้อง</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Metacognition -->
+                <div class="bg-gradient-to-br from-purple-500/10 to-purple-900/10 rounded-2xl p-8 border border-purple-500/30" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-lightbulb text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold font-thai text-purple-500 mb-2">Metacognition</h3>
+                            <p class="text-gray-300 font-thai text-lg">สามารถมองทะลุวิธีการคิดของตัวเอง รู้ว่าตนเองเข้าใจหรือไม่ตรงไหน เพื่อให้สามารถปรับวิธีการเรียนให้เหมาะสมกับแต่ละวิชาและสถานการณ์</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl lg:text-5xl font-thai font-bold mb-8" data-aos="fade-up">
+                พร้อมที่จะอัพเลเวล<br>การเรียนรู้ของลูกคุณแล้วหรือยัง?
+            </h2>
+            
+            <div class="flex justify-center" data-aos="zoom-in" data-aos-delay="200">
+                <a href="https://lin.ee/XznaA5z" target="_blank" rel="noopener" class="relative inline-block group">
+                        <div class="absolute -top-3 -right-8 bg-mint text-navy px-3 py-1 rounded-full font-bold text-xs uppercase">
+                            free
+                        </div>
+                        <button class="bg-gradient-to-r from-orange to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-thai font-extrabold py-4 px-12 rounded-lg shadow-[0_8px_20px_rgba(255,133,27,0.4)] transition transform hover:scale-110 text-lg uppercase tracking-wide">
+                            Start Mission
+                        </button>
+                    </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRANSITION SECTION -->
+    <section class="py-20 bg-gradient-to-b from-navy to-gray-900 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center space-y-8">
+                <h2 class="text-3xl lg:text-4xl font-thai font-bold mb-6" data-aos="fade-up">
+                    นอกจากนี้ ยังมี 'ภารกิจลับ' ที่จะช่วย<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-rose-500 to-purple-500">ทลายขีดจำกัด</span> สู่ความเป็น Pro Learner เต็มรูปแบบ
+                </h2>
+                <p class="text-lg lg:text-xl font-thai text-gray-300 max-w-3xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="100">
+                    โดยการเก็บ <span class="text-mint font-bold">7 Stones</span> ผ่านการทำ quest ที่ออกแบบผ่านหลักจิตวิทยาการเรียนรู้<br>ซึ่งจะช่วยอัพสกิลพื้นฐานที่สำคัญของการเรียนรู้อย่างยั่งยืน
+                </p>
+                
+                <!-- Decorative Line -->
+                <div class="flex items-center justify-center gap-4 py-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex-1 h-px bg-gradient-to-r from-transparent via-mint to-transparent"></div>
+                    <i class="fa-solid fa-sparkles text-mint text-2xl"></i>
+                    <div class="flex-1 h-px bg-gradient-to-l from-transparent via-mint to-transparent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. GAMIFICATION (7 STONES) -->
+    <section id="stones" class="py-16 bg-gray-900 relative">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h2 class="text-3xl lg:text-4xl font-thai font-bold mb-4 flex flex-col items-center justify-center" data-aos="fade-in">
+                <span class="mb-2">รายละเอียดภารกิจลับ</span>
+                <span class="inline-block px-6 py-2 border-2 border-mint rounded-xl bg-navy/60 shadow-lg">
+                    Collect <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange via-yellow-400 to-mint">7 Stones</span>
+                </span>
+            </h2>
+            <p class="text-gray-400 font-thai text-lg mb-12" data-aos="fade-in" data-aos-delay="100">ระบบ Gamification ที่ช่วยปลดล็อกพลังการเรียนรู้ไร้ขีดจำกัด</p>
+            
+            <!-- Default Message - Shows before hover -->
+            <div class="max-w-2xl mx-auto mb-16 p-8 border-2 border-mint rounded-lg min-h-[120px] flex flex-col items-center justify-center transition-all duration-300" id="stone-console" data-aos="zoom-in">
+                <h3 id="console-title" class="text-3xl font-bold mb-3 font-thai text-mint uppercase">SYSTEM READY</h3>
+                <p id="console-desc" class="text-gray-300 font-thai text-base">เลื่อนเมาส์ไปที่ไอคอนด้านล่างเพื่อวิเคราะห์ความสามารถของ Stone แต่ละเม็ด</p>
+            </div>
+
+            <!-- Stones Grid -->
+            <div class="flex flex-wrap justify-center gap-8 px-4" data-aos="fade-up">
+                <!-- Generated by JS, but hardcoded structure for SEO/Fallback -->
+                <div class="stone-item group cursor-pointer flex flex-col items-center" data-name="Time Stone" data-desc="พลังแห่งการจัดการเวลา เปลี่ยนความวุ่นวาย ให้กลายเป็นชิ้นงานเล็กๆ ที่จัดการเสร็จได้ก่อนกำหนด" data-color="#4ade80">
+                    <i class="fa-solid fa-hourglass-start text-5xl text-green-400 group-hover:scale-125 transition duration-300 drop-shadow-[0_0_10px_rgba(74,222,128,0.5)] mb-2"></i>
+                    <p class="text-gray-400 text-sm font-thai">Time Stone</p>
+                </div>
+                <div class="stone-item group cursor-pointer flex flex-col items-center" data-name="Space Stone" data-desc="พลังแห่งการจัดสภาพแวดล้อม เพื่อเข้าสู่สภาวะ Flow State ได้ทันที ตัดสิ่งรบกวนภายนอก เพื่อให้สมองทำงานได้เต็มประสิทธิภาพสูงสุด" data-color="#60a5fa">
+                    <i class="fa-solid fa-cube text-5xl text-blue-400 group-hover:scale-125 transition duration-300 drop-shadow-[0_0_10px_rgba(96,165,250,0.5)] mb-2"></i>
+                    <p class="text-gray-400 text-sm font-thai">Space Stone</p>
+                </div>
+                <div class="stone-item group cursor-pointer flex flex-col items-center" data-name="Power Stone" data-desc="พลังแห่งการสร้างระบบการเรียนรู้ เหมือนมีสมองที่สองไว้รองรับการเรียนรู้ไร้ขีดจำกัด" data-color="#f472b6">
+                    <i class="fa-solid fa-bolt text-5xl text-pink-400 group-hover:scale-125 transition duration-300 drop-shadow-[0_0_10px_rgba(244,114,182,0.5)] mb-2"></i>
+                    <p class="text-gray-400 text-sm font-thai">Power Stone</p>
+                </div>
+                <div class="stone-item group cursor-pointer flex flex-col items-center" data-name="Soul Stone" data-desc="พลังแห่งการรู้คิด และการสะท้อนผล ช่วยให้เข้าใจว่าวันนี้พลาดตรงไหน และพรุ่งนี้จะเก่งกว่าเดิมได้อย่างไร รู้จักจุดแข็ง จุดอ่อนของตัวเองได้ชัดเจน" data-color="#fb923c">
+                    <i class="fa-solid fa-heart text-5xl text-orange group-hover:scale-125 transition duration-300 drop-shadow-[0_0_10px_rgba(251,146,60,0.5)] mb-2"></i>
+                    <p class="text-gray-400 text-sm font-thai">Soul Stone</p>
+                </div>
+                 <div class="stone-item group cursor-pointer flex flex-col items-center" data-name="Mind Stone" data-desc="พลังแห่ง Growth Mindset ที่เชื่อว่าความฉลาดไม่ใช่เรื่องพรสวรรค์ แต่สร้างได้ด้วยความพยายาม เปลี่ยนความล้มเหลวให้เป็นบทเรียนที่มีค่า" data-color="#facc15">
+                    <i class="fa-solid fa-brain text-5xl text-yellow-400 group-hover:scale-125 transition duration-300 drop-shadow-[0_0_10px_rgba(250,204,21,0.5)] mb-2"></i>
+                    <p class="text-gray-400 text-sm font-thai">Mind Stone</p>
+                </div>
+                <div class="stone-item group cursor-pointer flex flex-col items-center" data-name="Life Stone" data-desc="พลังแห่ง Grit&Resilience ไม่ย่อท้อต่ออุปสรรค เพื่อให้วิ่งมาราธอนแห่งการเรียนรู้ได้จนถึงเส้นชัยโดยไม่หมดไฟกลางทาง" data-color="#34d399">
+                    <i class="fa-solid fa-tree text-5xl text-emerald-400 group-hover:scale-125 transition duration-300 drop-shadow-[0_0_10px_rgba(52,211,153,0.5)] mb-2"></i>
+                    <p class="text-gray-400 text-sm font-thai">Life Stone</p>
+                </div>
+                <div class="stone-item group cursor-pointer flex flex-col items-center" data-name="Energy Stone" data-desc="พลังแห่งแรงจูงใจภายใน เชื่อมโยงสิ่งที่เรียนเข้ากับเป้าหมายชีวิต ทำให้การเรียนรู้ในทุกวันมีความหมายมากกว่าแค่การทำเกรด" data-color="#f87171">
+                    <i class="fa-solid fa-fire text-5xl text-red-400 group-hover:scale-125 transition duration-300 drop-shadow-[0_0_10px_rgba(248,113,113,0.5)] mb-2"></i>
+                    <p class="text-gray-400 text-sm font-thai">Energy Stone</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PRODUCTS -->
+    <section id="products" class="py-24 bg-navyLight/20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl lg:text-4xl font-thai font-bold mb-4">Choose Your Weapon</h2>
+                <p class="text-gray-400 font-thai">เลือกเครื่องมือที่ใช่ สำหรับภารกิจการเรียนรู้ของคุณ</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 items-start">
+                <!-- Product 1 -->
+                <div class="relative glass-panel p-8 rounded-xl border border-gray-700 hover:border-mint transition" data-aos="fade-up" data-aos-delay="0">
+                                        <div class="absolute top-0 right-0 bg-mint text-navy text-base font-extrabold min-w-[90px] py-2 rounded-tl-none rounded-tr-xl rounded-bl-none rounded-br-none shadow-lg tracking-wide flex justify-center items-center">Free</div>
+                    <h3 class="text-xl font-bold font-thai mb-2">Pro Learner Dashboard</h3>
+                    <div class="text-sm text-mint mb-4 font-bold">STARTER KIT</div>
+                    <p class="text-gray-400 text-sm mb-6 font-thai h-12">Notion Template พื้นฐานสำหรับผู้เริ่มต้น ช่วยให้การ<br>ตั้งเป้าหมายและวางแผนการเรียนรู้เป็นเรื่องง่าย</p>
+                    <ul class="text-gray-300 text-sm space-y-2 mb-8 font-thai">
+                        <li><i class="fa-solid fa-check text-mint mr-2"></i> Daily Log</li>
+                        <li><i class="fa-solid fa-check text-mint mr-2"></i> Learning Planner</li>
+                        <li><i class="fa-solid fa-check text-mint mr-2"></i> Video Guide</li>
+                    </ul>
+                                    <a href="https://lin.ee/XznaA5z" target="_blank" rel="noopener" class="block w-full">
+                                        <button class="w-full border border-mint text-mint py-2 rounded font-bold hover:bg-mint hover:text-navy transition font-thai">เพิ่มเพื่อนในไลน์ OA เพื่อรับเครื่องมือฟรี!</button>
+                                    </a>
+                </div>
+
+                <!-- Product 2 (Best Seller) -->
+                <div class="relative glass-panel p-8 rounded-xl border-2 border-mint bg-gradient-to-b from-navyLight to-navy transform md:-translate-y-4 shadow-[0_0_20px_rgba(152,255,152,0.2)]" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 right-0 bg-orange text-white text-xs font-bold min-w-[110px] py-1.5 rounded-tl-none rounded-tr-xl rounded-bl-none rounded-br-none shadow-lg flex justify-center items-center">Recommended</div>
+                    <h3 class="text-2xl font-bold font-thai mb-2">Pro Learner Hub</h3>
+                    <div class="text-sm text-mint mb-4 font-bold">COMPLETE EDITION</div>
+                    <p class="text-gray-300 text-sm mb-6 font-thai h-12">ระบบปฏิบัติการเต็มรูปแบบ พร้อม Gamification 7 Stones และระบบสรุปผล</p>
+                    <ul class="text-white text-sm space-y-2 mb-8 font-thai">
+                        <li><i class="fa-solid fa-check text-mint mr-2"></i> <strong>21-Day Missions to Turn Pro</strong></li>
+                        <li><i class="fa-solid fa-check text-mint mr-2"></i> Unlock 7 Stones Secret Missions</li>
+                        <li><i class="fa-solid fa-check text-mint mr-2"></i> Second Brain System</li>
+                        <li><i class="fa-solid fa-check text-mint mr-2"></i> Monthly Review</li>
+                    </ul>
+                    <button class="w-full bg-orange hover:bg-orangeHover text-white py-3 rounded font-bold shadow-lg transition font-thai">Coming soon</button>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="glass-panel p-8 rounded-xl border border-gray-700 hover:border-orange transition" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold font-thai mb-2">1-on-1 Coaching</h3>
+                    <div class="text-sm text-orange mb-4 font-bold">EXCLUSIVE</div>
+                    <p class="text-gray-400 text-sm mb-6 font-thai h-12">บริการโค้ชชิ่งส่วนตัว เจาะลึกปัญหาและออกแบบแผนการเรียนรู้รายบุคคล</p>
+                    <ul class="text-gray-300 text-sm space-y-2 mb-8 font-thai">
+                        <li><i class="fa-solid fa-check text-orange mr-2"></i> Weekly Online Session</li>
+                        <li><i class="fa-solid fa-check text-orange mr-2"></i> Personalized Plan</li>
+                        <li><i class="fa-solid fa-check text-orange mr-2"></i> Deep Dive Analysis</li>
+                    </ul>
+                                    <a href="https://lin.ee/XznaA5z" target="_blank" rel="noopener" class="block w-full">
+                                        <button class="w-full border border-orange text-orange py-2 rounded font-bold hover:bg-orange hover:text-white transition font-thai">ขอรายละเอียด</button>
+                                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. ABOUT SECTION -->
+    <section id="about" class="py-24 bg-navy border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+            <div class="relative" data-aos="fade-right">
+                <div class="absolute -top-4 -left-4 w-full h-full border-2 border-mint rounded-2xl z-0"></div>
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Coach" class="relative z-10 rounded-2xl shadow-2xl grayscale hover:grayscale-0 transition duration-500">
+            </div>
+            <div data-aos="fade-left">
+                <h2 class="text-3xl lg:text-4xl font-thai font-bold mb-6">รู้จักกับโค้ช</h2>
+                <p class="text-gray-300 font-thai mb-6 leading-relaxed">"สวัสดีครับ ผมโค้ชพี่โอม The Learning Coach นะครับ ผมเชื่อว่าเด็กทุกคนมีความเก่งในแบบของตัวเอง แต่สิ่งที่โรงเรียนไม่ได้สอน คือ 'วิธีการเรียนรู้' (How to learn)"
+
+<BR><BR>จากการเป็นที่ปรึกษาด้านการศึกษามากว่า 20 ปี ผมพบว่าปัญหาไม่ได้อยู่ที่เด็กไม่ขยัน แต่อยู่ที่การขาดระบบจัดการที่ดี ผมจึงพัฒนา Pro-Learner Hub ขึ้นมา เพื่อเป็นเครื่องมือที่ช่วยปลดล็อกศักยภาพ ให้ทุกคนสามารถเรียนรู้ได้เร็วขึ้น สนุกขึ้น และมีเวลาไปใช้ชีวิตในด้านอื่นๆ มากขึ้น
+                </p>
+                <div class="grid grid-cols-2 gap-6 mt-8">
+                    <div class="text-center p-4 bg-navyLight rounded-lg">
+                        <div class="text-3xl font-bold text-mint mb-1">20+</div>
+                        <div class="text-xs text-gray-400 font-thai">Years Experience</div>
+                    </div>
+                    <div class="text-center p-4 bg-navyLight rounded-lg">
+                        <div class="text-3xl font-bold text-mint mb-1">1000+</div>
+                        <div class="text-xs text-gray-400 font-thai">Students Mentored</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-span-2 flex flex-col items-center justify-center mt-12">
+                <img src="images/partners.png" alt="พันธมิตรและองค์กรที่ร่วมสนับสนุน The Learning Coach" class="max-w-4xl w-full h-auto object-contain rounded-xl shadow-lg" loading="lazy">
+                <p class="text-gray-400 text-sm font-thai mt-4 text-center max-w-2xl">หน่วยงานภาครัฐและเอกชนที่เคยทำงานร่วมกับ The Learning Coach ทั้งในบทบาทโค้ชและนักออกแบบการเรียนรู้</p>
+            </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section id="faq" class="py-24 bg-navyLight/40">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-center text-3xl font-thai font-bold mb-12" data-aos="fade-up">คำถามที่พบบ่อย (FAQ)</h2>
+            
+            <div class="space-y-4" id="faq-container">
+                <!-- Item 1 -->
+                <div class="glass-panel rounded-lg overflow-hidden transition-all duration-300" data-aos="fade-up">
+                    <button class="faq-toggle w-full text-left p-6 font-thai font-bold flex justify-between items-center focus:outline-none">
+                        <span>ไม่เคยใช้ Notion มาก่อน ยากไหม?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content h-0 overflow-hidden transition-all duration-300">
+                        <div class="p-6 pt-0 text-gray-400 font-thai border-t border-gray-700/50">
+                            ไม่ยากครับ! เรามีวิดีโอสอนการใช้งานแบบจับมือทำ เรียนรู้แป๊บเดียวก็ใช้งานคล่องครับ
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="glass-panel rounded-lg overflow-hidden transition-all duration-300" data-aos="fade-up">
+                    <button class="faq-toggle w-full text-left p-6 font-thai font-bold flex justify-between items-center focus:outline-none">
+                        <span>ระบบนี้เหมาะกับช่วงวัยไหน?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content h-0 overflow-hidden transition-all duration-300">
+                        <div class="p-6 pt-0 text-gray-400 font-thai border-t border-gray-700/50">
+                            ออกแบบมาโดยเฉพาะสำหรับนักเรียนระดับมัธยมศึกษา (12-18 ปี) แต่ระดับมหาวิทยาลัยก็สามารถนำไปประยุกต์ใช้จัดการโปรเจกต์ได้ดีเช่นกันครับ
+                        </div>
+                    </div>
+                </div>
+                 <!-- Item 3 -->
+                 <div class="glass-panel rounded-lg overflow-hidden transition-all duration-300" data-aos="fade-up">
+                    <button class="faq-toggle w-full text-left p-6 font-thai font-bold flex justify-between items-center focus:outline-none">
+                        <span>ต้องเสียค่ารายเดือนไหม?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content h-0 overflow-hidden transition-all duration-300">
+                        <div class="p-6 pt-0 text-gray-400 font-thai border-t border-gray-700/50">
+                            สำหรับ Notion Template เป็นการจ่ายครั้งเดียวจบ ใช้ได้ตลอดชีพครับ
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. CONTACT / FOOTER -->
+    <section id="contact" class="bg-navy-dark pt-24 pb-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <div>
+                    <h3 class="text-2xl font-thai font-bold mb-6 text-mint">Ready to start?</h3>
+                    <p class="text-gray-400 font-thai mb-4">หากมีข้อสงสัยเพิ่มเติม หรือต้องการปรึกษาปัญหาการเรียน สามารถทักมาคุยกันได้เลยครับ</p>
+                    <div class="mb-8">
+                        <a href="https://lin.ee/XznaA5z" target="_blank" rel="noopener" class="inline-block">
+                            <button class="bg-gradient-to-r from-orange to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-thai font-bold py-3 px-8 rounded-lg shadow-md transition transform hover:scale-105 text-lg uppercase tracking-wide border-2 border-orange">
+                                เริ่มภารกิจ!
+                            </button>
+                        </a>
+                    </div>
+                    
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4 w-full">
+                        <div class="text-gray-500 text-sm font-thai whitespace-nowrap">© 2026 The Learning Coach. All rights reserved.</div>
+                        <div class="flex-1 flex justify-end">
+                            <a href="https://www.facebook.com/profile.php?id=61583448817210" target="_blank" rel="noopener" class="text-mint hover:text-orange transition mr-4"><i class="fa-brands fa-facebook text-2xl"></i></a>
+                            <a href="https://lin.ee/XznaA5z" target="_blank" rel="noopener" class="text-mint hover:text-orange transition"><i class="fa-brands fa-line text-2xl"></i></a>
+                        </div>
+                    </div>
+                    <div class="flex justify-center md:justify-end w-full mt-4 md:mt-0">
+                        <!-- ปุ่มถูกย้ายไปไว้ด้านบน -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Logic JS -->
+    <script src="script.js"></script>
+</body>
+</html>
