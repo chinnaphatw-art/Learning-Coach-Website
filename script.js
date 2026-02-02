@@ -90,4 +90,56 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // 6. Event Tracking Logic
+    const trackEvent = (category, action, label) => {
+        if (typeof gtag === 'function') {
+            gtag('event', action, {
+                event_category: category,
+                event_label: label,
+            });
+        }
+        if (typeof fbq === 'function') {
+            fbq('trackCustom', action, {
+                category: category,
+                label: label,
+            });
+        }
+    };
+
+    // Update event tracking logic for specific buttons
+    const trackSpecificEvent = (action, label) => {
+        if (typeof gtag === 'function') {
+            gtag('event', action, {
+                event_category: 'Button Click',
+                event_label: label,
+            });
+        }
+        if (typeof fbq === 'function') {
+            fbq('trackCustom', action, {
+                category: 'Button Click',
+                label: label,
+            });
+        }
+    };
+
+    // Track "Lead" events
+    document.querySelectorAll('a[href="#products"], button').forEach(button => {
+        const text = button.textContent.trim();
+        if (text === "Start Now" || text === "เริ่มต้นภารกิจฟรี" || text === "เริ่มภารกิจ!") {
+            button.addEventListener('click', () => {
+                trackSpecificEvent('Lead', text);
+            });
+        }
+    });
+
+    // Track "Contact" events
+    document.querySelectorAll('a[href*="lin.ee"], button').forEach(button => {
+        const text = button.textContent.trim();
+        if (text === "เพิ่มเพื่อนในไลน์ OA เพื่อรับเครื่องมือฟรี!" || text === "ขอรายละเอียด") {
+            button.addEventListener('click', () => {
+                trackSpecificEvent('Contact', text);
+            });
+        }
+    });
+
 });
