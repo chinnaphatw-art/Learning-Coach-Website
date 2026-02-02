@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         if (typeof fbq === 'function') {
-            fbq('trackCustom', action, {
+            fbq('track', action, {
                 category: 'Button Click',
                 label: label,
             });
@@ -135,9 +135,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Track "Contact" events
     document.querySelectorAll('a[href*="lin.ee"], button').forEach(button => {
         const text = button.textContent.trim();
-        if (text === "เพิ่มเพื่อนในไลน์ OA เพื่อรับเครื่องมือฟรี!" || text === "ขอรายละเอียด") {
+        if (text === "ขอรายละเอียด") {
             button.addEventListener('click', () => {
-                trackSpecificEvent('Contact', text);
+                trackSpecificEvent('Coaching', text);
             });
         }
     });
