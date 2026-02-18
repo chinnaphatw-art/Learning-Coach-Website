@@ -5,6 +5,10 @@ html {
 
 body {
     background-color: #001f3f; /* Fallback */
+    font-family: 'Kanit', 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ffffff;
 }
 
 /* CUSTOM UTILITIES */
@@ -71,4 +75,17 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #98ff98;
+}
+
+/* FONT SETTINGS */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: #d1d5db; /* Tailwind's gray-300 */
 }
