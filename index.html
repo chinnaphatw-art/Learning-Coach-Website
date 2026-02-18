@@ -663,7 +663,7 @@ src="https://www.facebook.com/tr?id=1256907069633791&ev=PageView&noscript=1"
     <!-- Logic JS -->
     <script src="script.js"></script>
 <!-- ============================================ -->
-<!-- MODAL: PRO-LEARNER HUB DETAIL PAGE           -->
+<!-- MODAL: PRO-LEARNER HUB DETAIL PAGE (UPDATED) -->
 <!-- ============================================ -->
 <div id="modal-hub" class="fixed inset-0 z-50 hidden overflow-y-auto bg-navy" style="animation: fadeIn 0.3s ease-in-out;">
     <!-- Sticky Close Button Bar -->
@@ -676,17 +676,68 @@ src="https://www.facebook.com/tr?id=1256907069633791&ev=PageView&noscript=1"
 
     <!-- Content Container -->
     <div class="container mx-auto px-6 py-12 max-w-4xl">
-        <!-- Hero Image -->
-        <div class="rounded-2xl overflow-hidden mb-8 border-2 border-orange shadow-[0_0_30px_rgba(255,133,27,0.2)]">
-            <!-- ใส่รูปปก Product ของคุณตรงนี้ -->
-            <img src="https://via.placeholder.com/1200x600/001f3f/98ff98?text=Pro-Learner+Hub+Complete+Edition" alt="Pro-Learner Hub" class="w-full h-auto object-cover">
+        
+        <!-- 🔥 NEW: Product Image Carousel -->
+        <div class="relative w-full aspect-video mb-8 rounded-2xl overflow-hidden border-2 border-orange shadow-[0_0_30px_rgba(255,133,27,0.2)] group">
+            <!-- Slides Container -->
+            <div id="carousel-slides" class="relative w-full h-full bg-navyLight">
+                
+                <!-- Slide 1: Dashboard Overview -->
+                <div class="carousel-item absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100">
+                    <img src="images/dashboard-main.jpg" alt="Pro-Learner Dashboard" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-navy to-transparent p-6 pt-12">
+                        <p class="text-white text-lg font-bold drop-shadow-md">Dashboard ภาพรวม: จัดการชีวิตในหน้าเดียว</p>
+                    </div>
+                </div>
+
+                <!-- Slide 2: My Compass -->
+                <div class="carousel-item absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0">
+                    <img src="images/my-compass.jpg" alt="My Compass Goal Setting" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-navy to-transparent p-6 pt-12">
+                        <p class="text-white text-lg font-bold drop-shadow-md">My Compass: เข็มทิศตั้งเป้าหมายชีวิต</p>
+                    </div>
+                </div>
+
+                <!-- Slide 3: 7 Stones Quest -->
+                <div class="carousel-item absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0">
+                    <img src="images/stones-quest.jpg" alt="7 Stones Gamification" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-navy to-transparent p-6 pt-12">
+                        <p class="text-white text-lg font-bold drop-shadow-md">7 Stones System: เปลี่ยนการเรียนเป็นเกมสนุกๆ</p>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Knowledge Hub -->
+                <div class="carousel-item absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0">
+                    <img src="images/knowledge-hub.jpg" alt="Active Recall System" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-navy to-transparent p-6 pt-12">
+                        <p class="text-white text-lg font-bold drop-shadow-md">Knowledge Hub: คลังความรู้แบบ Active Recall</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Navigation Buttons (แสดงเมื่อเอาเมาส์ชี้) -->
+            <button onclick="moveSlide(-1)" class="absolute top-1/2 left-4 -translate-y-1/2 bg-black/50 hover:bg-orange text-white w-10 h-10 rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button onclick="moveSlide(1)" class="absolute top-1/2 right-4 -translate-y-1/2 bg-black/50 hover:bg-orange text-white w-10 h-10 rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <!-- Indicators (Dots) -->
+            <div class="absolute bottom-4 right-4 flex space-x-2 z-10">
+                <span class="dot w-2 h-2 bg-white rounded-full cursor-pointer transition-all hover:bg-orange hover:scale-125" onclick="setSlide(0)"></span>
+                <span class="dot w-2 h-2 bg-white/50 rounded-full cursor-pointer transition-all hover:bg-orange hover:scale-125" onclick="setSlide(1)"></span>
+                <span class="dot w-2 h-2 bg-white/50 rounded-full cursor-pointer transition-all hover:bg-orange hover:scale-125" onclick="setSlide(2)"></span>
+                <span class="dot w-2 h-2 bg-white/50 rounded-full cursor-pointer transition-all hover:bg-orange hover:scale-125" onclick="setSlide(3)"></span>
+            </div>
         </div>
 
         <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
             Pro-Learner Hub <span class="text-orange">Complete Edition</span>
         </h1>
         <p class="text-xl text-gray-300 mb-10 leading-relaxed">
-            Digital Planner ที่สมบูรณ์แบบที่สุดบน Notion ที่จะเปลี่ยนการเรียนที่วุ่นวาย ให้กลายเป็นเกมที่สนุกและวัดผลได้จริง
+            ระบบ Second Brain ที่สมบูรณ์แบบที่สุดบน Notion ที่จะเปลี่ยนการเรียนที่วุ่นวาย ให้กลายเป็นเกมที่สนุกและวัดผลได้จริง
         </p>
 
         <!-- Feature Grid -->
@@ -716,7 +767,7 @@ src="https://www.facebook.com/tr?id=1256907069633791&ev=PageView&noscript=1"
         <!-- The Offer -->
         <div class="bg-slate-800 rounded-2xl p-8 border border-orange text-center">
             <h3 class="text-2xl font-bold text-white mb-4">พร้อมติดตั้งระบบหรือยัง?</h3>
-            <p class="text-gray-300 mb-6">รับ Notion Master Template + คอร์สวิดีโอ + กลุ่ม VIP</p>
+            <p class="text-gray-300 mb-6">รับ Notion Master Template + คอร์สวิดีโอ + กลุ่ม Facebook สำหรับปรึกษาโค้ช</p>
             <div class="text-5xl font-bold text-white mb-2">490.-</div>
             <p class="text-gray-500 line-through mb-8">จากปกติ 3,990.-</p>
             
@@ -785,16 +836,88 @@ src="https://www.facebook.com/tr?id=1256907069633791&ev=PageView&noscript=1"
     </div>
 </div>
 
-<!-- SCRIPT FOR MODALS -->
+<!-- ============================================ -->
+<!-- JAVASCRIPT FOR CAROUSEL & MODALS             -->
+<!-- ============================================ -->
 <script>
+    // --- Modal Logic ---
     function openModal(modalId) {
         document.getElementById(modalId).classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // ป้องกันหน้าหลังเลื่อน
+        document.body.style.overflow = 'hidden'; 
+        // ถ้าเปิด Modal ที่มี Carousel ให้เริ่มเล่น Slide อัตโนมัติ
+        if(modalId === 'modal-hub') {
+            startCarousel();
+        }
     }
 
     function closeModal(modalId) {
         document.getElementById(modalId).classList.add('hidden');
-        document.body.style.overflow = 'auto'; // คืนค่าการเลื่อนหน้า
+        document.body.style.overflow = 'auto';
+        // หยุดเล่น Carousel เมื่อปิด Modal
+        if(modalId === 'modal-hub') {
+            stopCarousel();
+        }
+    }
+
+    // --- Carousel Logic ---
+    let slideIndex = 0;
+    let slides = document.querySelectorAll('.carousel-item');
+    let dots = document.querySelectorAll('.dot');
+    let carouselInterval;
+
+    function showSlides(n) {
+        if (!slides.length) {
+            // Re-query elements if they weren't loaded initially
+            slides = document.querySelectorAll('.carousel-item');
+            dots = document.querySelectorAll('.dot');
+            if(!slides.length) return;
+        }
+
+        if (n >= slides.length) {slideIndex = 0}
+        if (n < 0) {slideIndex = slides.length - 1}
+
+        // Hide all
+        slides.forEach(slide => {
+            slide.classList.remove('opacity-100');
+            slide.classList.add('opacity-0');
+        });
+        dots.forEach(dot => {
+            dot.classList.remove('bg-white');
+            dot.classList.add('bg-white/50');
+        });
+
+        // Show active
+        slides[slideIndex].classList.remove('opacity-0');
+        slides[slideIndex].classList.add('opacity-100');
+        dots[slideIndex].classList.remove('bg-white/50');
+        dots[slideIndex].classList.add('bg-white');
+    }
+
+    function moveSlide(n) {
+        stopCarousel(); // Reset timer when manually clicked
+        slideIndex += n;
+        showSlides(slideIndex);
+        startCarousel();
+    }
+
+    function setSlide(n) {
+        stopCarousel();
+        slideIndex = n;
+        showSlides(slideIndex);
+        startCarousel();
+    }
+
+    function startCarousel() {
+        // Clear existing interval just in case
+        clearInterval(carouselInterval);
+        carouselInterval = setInterval(() => {
+            slideIndex++;
+            showSlides(slideIndex);
+        }, 5000); // เปลี่ยนภาพทุก 5 วินาที
+    }
+
+    function stopCarousel() {
+        clearInterval(carouselInterval);
     }
 </script>
 
