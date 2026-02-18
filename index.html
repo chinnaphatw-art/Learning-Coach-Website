@@ -516,7 +516,7 @@ src="https://www.facebook.com/tr?id=1256907069633791&ev=PageView&noscript=1"
                 <!-- Product 2 (Best Seller) -->
                 <div class="relative glass-panel p-8 rounded-xl border-2 border-mint bg-gradient-to-b from-navyLight to-navy transform md:-translate-y-4 shadow-[0_0_20px_rgba(152,255,152,0.2)]" data-aos="fade-up" data-aos-delay="100">
                     <div class="absolute top-0 right-0 bg-orange text-white text-xs font-bold min-w-[110px] py-1.5 rounded-tl-none rounded-tr-xl rounded-bl-none rounded-br-none shadow-lg flex justify-center items-center">Recommended</div>
-                    <h3 class="text-2xl font-bold font-thai mb-2">Pro Learner Hub</h3>
+                    <h3 class="text-2xl font-bold font-thai mb-2">Pro-Learner Hub</h3>
                     <div class="text-sm text-mint mb-4 font-bold">COMPLETE EDITION</div>
                     <p class="text-gray-300 text-sm mb-6 font-thai h-12">ระบบปฏิบัติการเต็มรูปแบบ พร้อม Gamification 7 Stones และระบบสรุปผล</p>
                     <ul class="text-white text-sm space-y-2 mb-8 font-thai">
@@ -525,7 +525,9 @@ src="https://www.facebook.com/tr?id=1256907069633791&ev=PageView&noscript=1"
                         <li><i class="fa-solid fa-check text-mint mr-2"></i> Second Brain System</li>
                         <li><i class="fa-solid fa-check text-mint mr-2"></i> Monthly Review</li>
                     </ul>
-                    <button class="w-full bg-orange hover:bg-orangeHover text-white py-3 rounded font-bold shadow-lg transition font-thai">Coming soon</button>
+                    <button onclick="openModal('modal-hub')" class="block w-full py-4 px-6 text-center rounded-lg bg-orange text-white font-bold hover:bg-orangeHover hover:shadow-lg transition-all transform hover:scale-105 cursor-pointer">
+                    ดูรายละเอียดหลักสูตร
+                    </button>
                 </div>
 
                 <!-- Product 3 -->
@@ -539,7 +541,9 @@ src="https://www.facebook.com/tr?id=1256907069633791&ev=PageView&noscript=1"
                         <li><i class="fa-solid fa-check text-orange mr-2"></i> Deep Dive Analysis</li>
                     </ul>
                                     <a href="https://lin.ee/XznaA5z" target="_blank" rel="noopener" class="block w-full">
-                                        <button class="w-full border border-orange text-orange py-2 rounded font-bold hover:bg-orange hover:text-white transition font-thai">ขอรายละเอียด</button>
+                                        <button onclick="openModal('modal-coaching')" class="block w-full py-3 px-6 text-center rounded-lg border border-blue-400 text-blue-400 font-semibold hover:bg-blue-400 hover:text-navy transition-colors cursor-pointer">
+                                        ดูรายละเอียด & สมัคร
+                                        </button>
                                     </a>
                 </div>
             </div>
@@ -660,5 +664,147 @@ src="https://www.facebook.com/tr?id=1256907069633791&ev=PageView&noscript=1"
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Logic JS -->
     <script src="script.js"></script>
+<!-- ============================================ -->
+<!-- MODAL: PRO-LEARNER HUB DETAIL PAGE           -->
+<!-- ============================================ -->
+<div id="modal-hub" class="fixed inset-0 z-50 hidden overflow-y-auto bg-navy" style="animation: fadeIn 0.3s ease-in-out;">
+    <!-- Sticky Close Button Bar -->
+    <div class="sticky top-0 z-50 bg-navy/90 backdrop-blur-md border-b border-gray-700 px-6 py-4 flex justify-between items-center">
+        <span class="text-mint font-bold text-lg">Pro-Learner Hub</span>
+        <button onclick="closeModal('modal-hub')" class="text-white hover:text-orange text-sm font-bold flex items-center gap-2 px-4 py-2 border border-gray-600 rounded-full hover:bg-gray-800 transition">
+            <i class="fas fa-times"></i> ปิดหน้านี้
+        </button>
+    </div>
+
+    <!-- Content Container -->
+    <div class="container mx-auto px-6 py-12 max-w-4xl">
+        <!-- Hero Image -->
+        <div class="rounded-2xl overflow-hidden mb-8 border-2 border-orange shadow-[0_0_30px_rgba(255,133,27,0.2)]">
+            <!-- ใส่รูปปก Product ของคุณตรงนี้ -->
+            <img src="https://via.placeholder.com/1200x600/001f3f/98ff98?text=Pro-Learner+Hub+Complete+Edition" alt="Pro-Learner Hub" class="w-full h-auto object-cover">
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+            Pro-Learner Hub <span class="text-orange">Complete Edition</span>
+        </h1>
+        <p class="text-xl text-gray-300 mb-10 leading-relaxed">
+            ระบบปฏิบัติการสมอง (Brain OS) ที่สมบูรณ์แบบที่สุดบน Notion ที่จะเปลี่ยนการเรียนที่วุ่นวาย ให้กลายเป็นเกมที่สนุกและวัดผลได้จริง
+        </p>
+
+        <!-- Feature Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-navyLight p-6 rounded-xl border border-gray-700">
+                <i class="fas fa-rocket text-mint text-3xl mb-4"></i>
+                <h3 class="text-xl font-bold text-white mb-2">21-Day Mission Course</h3>
+                <p class="text-gray-400">คอร์สวิดีโอสอนปรับพื้นฐาน 21 วัน เปลี่ยนนิสัยจาก Passive Learner เป็น Pro-Learner วันละ 15 นาที</p>
+            </div>
+            <div class="bg-navyLight p-6 rounded-xl border border-gray-700">
+                <i class="fas fa-gem text-orange text-3xl mb-4"></i>
+                <h3 class="text-xl font-bold text-white mb-2">7 Stones System</h3>
+                <p class="text-gray-400">ระบบ Gamification สะสมอัญมณีพลัง เพื่อฝึกทักษะ EF, การจัดการเวลา และสมาธิ</p>
+            </div>
+            <div class="bg-navyLight p-6 rounded-xl border border-gray-700">
+                <i class="fas fa-brain text-blue-400 text-3xl mb-4"></i>
+                <h3 class="text-xl font-bold text-white mb-2">Knowledge Hub</h3>
+                <p class="text-gray-400">ระบบ 'สมองที่สอง' ช่วยจัดระเบียบความรู้ พร้อม Template การจดแบบ Active Recall</p>
+            </div>
+            <div class="bg-navyLight p-6 rounded-xl border border-gray-700">
+                <i class="fas fa-chart-line text-mint text-3xl mb-4"></i>
+                <h3 class="text-xl font-bold text-white mb-2">Monthly Report</h3>
+                <p class="text-gray-400">แดชบอร์ดสรุปผลรายเดือน เพื่อให้เห็นพัฒนาการที่ชัดเจน</p>
+            </div>
+        </div>
+
+        <!-- The Offer -->
+        <div class="bg-slate-800 rounded-2xl p-8 border border-orange text-center">
+            <h3 class="text-2xl font-bold text-white mb-4">พร้อมติดตั้งระบบหรือยัง?</h3>
+            <p class="text-gray-300 mb-6">รับ Notion Master Template + คอร์สวิดีโอ + E-book + กลุ่ม VIP</p>
+            <div class="text-5xl font-bold text-white mb-2">990.-</div>
+            <p class="text-gray-500 line-through mb-8">จากปกติ 5,080.-</p>
+            
+            <a href="LINK_LINE_MYSHOP_HERE" target="_blank" class="inline-block bg-orange hover:bg-orangeHover text-white font-bold text-xl py-4 px-12 rounded-full shadow-lg transform transition hover:scale-105">
+                👉 สั่งซื้อทันที (ผ่าน LINE MyShop)
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- MODAL: 1-ON-1 COACHING DETAIL PAGE           -->
+<!-- ============================================ -->
+<div id="modal-coaching" class="fixed inset-0 z-50 hidden overflow-y-auto bg-navy" style="animation: fadeIn 0.3s ease-in-out;">
+    <!-- Sticky Close Button Bar -->
+    <div class="sticky top-0 z-50 bg-navy/90 backdrop-blur-md border-b border-gray-700 px-6 py-4 flex justify-between items-center">
+        <span class="text-blue-400 font-bold text-lg">Exclusive Coaching</span>
+        <button onclick="closeModal('modal-coaching')" class="text-white hover:text-blue-400 text-sm font-bold flex items-center gap-2 px-4 py-2 border border-gray-600 rounded-full hover:bg-gray-800 transition">
+            <i class="fas fa-times"></i> ปิดหน้านี้
+        </button>
+    </div>
+
+    <!-- Content Container -->
+    <div class="container mx-auto px-6 py-12 max-w-4xl">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+            1-on-1 <span class="text-blue-400">Private Coaching</span>
+        </h1>
+        <p class="text-xl text-gray-300 mb-10 leading-relaxed">
+            บริการที่ปรึกษาส่วนตัว เจาะลึกปัญหาการเรียน ออกแบบแผนรายบุคคล และติดตามผลอย่างใกล้ชิด เพื่อปลดล็อกศักยภาพสูงสุด
+        </p>
+
+        <!-- Process Steps -->
+        <div class="space-y-6 mb-12">
+            <div class="flex gap-4">
+                <div class="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center text-navy font-bold text-xl shrink-0">1</div>
+                <div>
+                    <h3 class="text-xl font-bold text-white">Deep Dive Analysis</h3>
+                    <p class="text-gray-400">วิเคราะห์จุดแข็ง/จุดอ่อน ด้วยเครื่องมือ 3D Assessment และการสัมภาษณ์เชิงลึก</p>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <div class="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center text-navy font-bold text-xl shrink-0">2</div>
+                <div>
+                    <h3 class="text-xl font-bold text-white">Personalized Strategy</h3>
+                    <p class="text-gray-400">ออกแบบตารางเรียนและเทคนิคการจำที่เหมาะกับสมองของน้องคนนั้นโดยเฉพาะ</p>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <div class="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center text-navy font-bold text-xl shrink-0">3</div>
+                <div>
+                    <h3 class="text-xl font-bold text-white">Weekly Mentoring</h3>
+                    <p class="text-gray-400">นัดคุยผ่าน Zoom สัปดาห์ละ 1 ครั้ง เพื่อติดตามผล แก้ปัญหาหน้างาน และเติมไฟ</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="bg-navyLight rounded-2xl p-8 border border-blue-400 text-center">
+            <h3 class="text-2xl font-bold text-white mb-4">สนใจสมัครเข้าร่วมโครงการ?</h3>
+            <p class="text-gray-300 mb-6">รับจำนวนจำกัดต่อรุ่น เพื่อการดูแลที่ทั่วถึง</p>
+            
+            <a href="LINK_LINE_OA_HERE" target="_blank" class="inline-block border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-navy font-bold text-xl py-3 px-10 rounded-full transition-all">
+                💬 ทักแชทเพื่อสอบถามราคา
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPT FOR MODALS -->
+<script>
+    function openModal(modalId) {
+        document.getElementById(modalId).classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // ป้องกันหน้าหลังเลื่อน
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).classList.add('hidden');
+        document.body.style.overflow = 'auto'; // คืนค่าการเลื่อนหน้า
+    }
+</script>
+
+<style>
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
 </body>
 </html>
